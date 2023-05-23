@@ -16,19 +16,19 @@ export default function penaltyPoints(password = "") {
 
 
   // Check for consecutive duplicate numbers in the password
-  const duplicateNumbers = password.match(/(\d)\1+/);
+  const duplicateNum = password.match(/(\d)\1+/);
 
     // Check for consecutive duplicate letters in the password
   const duplicateLetters = password.match(/(\w)\1+/);
 
   // Count the length of the first consecutive duplicate numbers, if any
-  let repeatedCharacters = duplicateNumbers ? duplicateNumbers[0].length : 0;
+  let repeatedChar = duplicateNum ? duplicateNum[0].length : 0;
 
-    // Add the length of the first consecutive duplicate letters, if any, to repeatedCharacters
-  repeatedCharacters += duplicateLetters ? duplicateLetters[0].length : 0;
+    // Add the length of the first consecutive duplicate letters, if any, to repeatedChar
+  repeatedChar += duplicateLetters ? duplicateLetters[0].length : 0;
 
   // If there are no repeated characters, return 0. 
   // If there are 1 or 2 repeated characters, return 1.
   // If there are more than 2 repeated characters, return 2.
-  return repeatedCharacters === 0 ? 0 : repeatedCharacters <= 2 ? 1 : 2;
+  return repeatedChar === 0 ? 0 : repeatedChar <= 2 ? 1 : 2;
 }
